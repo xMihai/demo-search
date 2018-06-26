@@ -1,7 +1,12 @@
 import React from 'react'
+import Tour from '@@components/tour'
 
-const App = () => <div>Hello World </div>
+import './styled'
+
+const App: React.ComponentType<Props> = ({ list }) => <div>{list.map(tour => <Tour {...{ tour }} />)} </div>
 
 export default App
 
-export interface Props {}
+export interface Props {
+  readonly list: Tour[]
+}
