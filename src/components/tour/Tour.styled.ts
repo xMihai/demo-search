@@ -6,6 +6,17 @@ export const Wrapper = styled.div`
   margin-bottom: 16px;
   padding: 16px;
 `
+export const Column1 = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+  width: 96px;
+`
+
+export const Column2 = styled.div`
+  flex-grow: 1;
+  margin-left: 16px;
+`
+
 export const Title = styled.div`
   font-size: 16px;
   line-height: 1.5;
@@ -28,3 +39,14 @@ export const LabelCell = styled.td`
 export const ValueCell = styled.td`
   padding: 0;
 `
+
+const Image = styled.img`
+  width: 100%;
+  display: block;
+`
+
+export const Photo = Image.extend`
+  margin-bottom: 8px;
+`
+
+export const Map = Image

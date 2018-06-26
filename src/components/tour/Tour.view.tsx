@@ -3,7 +3,15 @@ import * as S from './Tour.styled'
 
 const Tour: React.ComponentType<Props> = ({ tour }) => (
   <S.Wrapper>
-    <div>
+    <S.Column1>
+      <div>
+        <S.Photo src={tour.tour_image} />
+      </div>
+      <div>
+        <S.Map src={tour.map_image} />
+      </div>
+    </S.Column1>
+    <S.Column2>
       <S.Title>{tour.tour_name}</S.Title>
       <S.Description>{tour.description}</S.Description>
       <S.Table>
@@ -32,7 +40,7 @@ const Tour: React.ComponentType<Props> = ({ tour }) => (
           </tr>
         </tbody>
       </S.Table>
-    </div>
+    </S.Column2>
   </S.Wrapper>
 )
 
