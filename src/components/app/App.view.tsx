@@ -1,9 +1,16 @@
 import React from 'react'
 import Tour from '@@components/tour'
+import Search from '@@components/search'
+import './App.styled'
 
-import './styled'
-
-const App: React.ComponentType<Props> = ({ list }) => <div>{list.map(tour => <Tour {...{ tour }} />)} </div>
+const App: React.ComponentType<Props> = ({ list }) => (
+  <div>
+    <div>
+      <Search />
+    </div>
+    <div>{list.map(tour => <Tour {...{ tour, key: tour.id }} />)}</div>
+  </div>
+)
 
 export default App
 

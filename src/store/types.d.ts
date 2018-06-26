@@ -41,9 +41,11 @@ interface ErrorAction {
   readonly meta?: any
 }
 
+// tslint:disable-next-line:interface-over-type-literal
 type NoProps = {}
 
 declare module '*/tours.json' {
+  // tslint:disable-next-line:array-type
   const value: Array<Tour>
   export default value
 }
