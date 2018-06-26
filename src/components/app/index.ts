@@ -1,2 +1,2 @@
-import { default as App } from './App.container'
+import { default as App } from './App.view'
 export default App

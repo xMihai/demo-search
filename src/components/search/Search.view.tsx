@@ -1,9 +1,18 @@
 import React from 'react'
+import Tour from '@@components/tour'
+import Filter from '@@components/filter'
 
-const Search: React.ComponentType<Props> = ({ filter }) => <input onChange={event => filter(event.target.value)} />
+const Search: React.ComponentType<Props> = ({ list }) => (
+  <div>
+    <div>
+      <Filter />
+    </div>
+    <div>{list.map(tour => <Tour {...{ tour, key: tour.id }} />)}</div>
+  </div>
+)
 
 export default Search
 
 export interface Props {
-  readonly filter: (value: string) => void
+  readonly list: Tour[]
 }

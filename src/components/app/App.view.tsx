@@ -1,19 +1,15 @@
 import React from 'react'
-import Tour from '@@components/tour'
 import Search from '@@components/search'
-import './App.styled'
+import * as S from './App.styled'
 
-const App: React.ComponentType<Props> = ({ list }) => (
-  <div>
-    <div>
+const App: React.ComponentType<Props> = () => (
+  <S.Wrapper>
+    <S.Content>
       <Search />
-    </div>
-    <div>{list.map(tour => <Tour {...{ tour, key: tour.id }} />)}</div>
-  </div>
+    </S.Content>
+  </S.Wrapper>
 )
 
 export default App
 
-export interface Props {
-  readonly list: Tour[]
-}
+export type Props = NoProps

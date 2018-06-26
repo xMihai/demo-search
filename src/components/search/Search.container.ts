@@ -1,14 +1,24 @@
 import { compose } from 'recompose'
 import { connect } from 'react-redux'
 import mapDispatchToProps from '@@store/mapDispatchToProps'
+import Search, { Props as ViewProps } from './Search.view'
 import actions from '@@store/actions'
-import Search from './Search.view'
-import debounceHandler from '@hocs/debounce-handler'
+import withLifecycle from '@hocs/with-lifecycle'
+import { getMatchingList } from '@@store/tours/selectors'
+import { State } from '@@store/tours/reducer'
 
-export default compose(
+export default compose<ViewProps, NoProps>(
   connect(
-    null,
-    mapDispatchToProps({ filter: actions.tours.filter })
+    (store: State) => ({
+      list: getMatchingList(store),
+    }),
+    mapDispatchToProps({ fetch: actions.tours.fetch })
   ),
-  debounceHandler('filter', 500)
+  withLifecycle({
+    onDidMount: ({ fetch }: Props) => fetch(),
+  })
 )(Search)
+
+interface Props extends ViewProps {
+  readonly fetch: typeof actions.tours.fetch
+}
