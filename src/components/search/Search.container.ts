@@ -14,8 +14,8 @@ export default compose<ViewProps, NoProps>(
     }),
     mapDispatchToProps({ fetch: actions.tours.fetch })
   ),
-  withLifecycle({
-    onDidMount: ({ fetch }: Props) => fetch(),
+  withLifecycle<Props>({
+    onDidMount: ({ fetch }) => fetch(),
   })
 )(Search)
 
