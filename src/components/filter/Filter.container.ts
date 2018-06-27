@@ -10,7 +10,7 @@ export default compose<ViewProps, Props>(
     null,
     mapDispatchToProps({ filter: actions.tours.filter })
   ),
-  debounceHandler('filter', 500)
+  debounceHandler('filter', 300)
 )(Search)
 
 export type Props = NoProps

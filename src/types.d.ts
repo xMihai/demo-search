@@ -49,3 +49,7 @@ declare module '*/tours.json' {
   const value: Array<Tour>
   export default value
 }
+
+interface ObjectMap<T> {
+  [key: string]: T
+}

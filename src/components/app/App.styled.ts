@@ -8,6 +8,10 @@ injectGlobal`
     font-family: Arial, Helvetica, sans-serif;
     background-color: #eee;
   }
+
+  * {
+    box-sizing: border-box;
+  }
 `
 
 export const Wrapper = styled.div`

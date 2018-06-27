@@ -1,6 +1,9 @@
 import React from 'react'
+import * as S from './Filter.styled'
 
-const Search: React.ComponentType<Props> = ({ filter }) => <input onChange={event => filter(event.target.value)} />
+const Search: React.ComponentType<Props> = ({ filter }) => (
+  <S.Input onChange={event => filter(event.target.value)} placeholder={'Search...'} />
+)
 
 export default Search
 
