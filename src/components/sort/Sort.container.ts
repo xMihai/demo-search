@@ -1,4 +1,4 @@
-import { compose, withProps, withState } from 'recompose'
+import { compose, withProps } from 'recompose'
 import { connect } from 'react-redux'
 import Sort, { Props as ViewProps } from './Sort.view'
 import { SORTING, State } from '@@store/tours/reducer'
@@ -11,7 +11,6 @@ export default compose<ViewProps, Props>(
     (state: State) => ({ selected: getSorting(state) }),
     mapDispatchToProps({ select: actions.tours.sort })
   ),
-  withState('selected', 'select', SORTING.LOW_PRICE),
   withProps<PropsStage2, ReduxProps>({
     options: {
       [SORTING.LOW_PRICE]: 'Lowest price first',

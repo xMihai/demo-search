@@ -2,7 +2,7 @@ import { INestedCreatorsMap, ActionFunctionAny, Action, ActionMap } from 'redux-
 import { identity } from '@@store/helpers'
 
 // Action creators configuration map
-export const configMap: ActionMap<any, any> = { TOURS: { FETCH: identity, FILTER: identity } }
+export const configMap: ActionMap<any, any> = { TOURS: { FETCH: identity, FILTER: identity, SORT: identity } }
 
 // The shape of the actions object
 export interface Actions extends INestedCreatorsMap {

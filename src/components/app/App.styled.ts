@@ -23,7 +23,7 @@ export const Wrapper = styled.div`
 `
 
 export const Content = styled.div`
-  width: 600px;
+  width: 800px;
   max-width: 100%;
   padding: 16px;
 `

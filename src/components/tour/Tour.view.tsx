@@ -41,6 +41,25 @@ const Tour: React.ComponentType<Props> = ({ tour }) => (
         </tbody>
       </S.Table>
     </S.Column2>
+    <S.Column3>
+      <S.PriceWrapper>
+        <S.SavingsColumn>
+          <S.PriceLabel>Our saving</S.PriceLabel>
+          <S.SavingsNumber>
+            {tour.currency} {tour.saving}
+          </S.SavingsNumber>
+        </S.SavingsColumn>
+        <S.PriceColumn>
+          <S.PriceLabel>From</S.PriceLabel>
+          <S.PriceNumber>
+            {tour.currency} {tour.price}
+          </S.PriceNumber>
+        </S.PriceColumn>
+      </S.PriceWrapper>
+      <S.Break opaque={false} />
+      <S.DurationWrapper>{tour.length} days</S.DurationWrapper>
+      <S.Break opaque={true} />
+    </S.Column3>
   </S.Wrapper>
 )
 

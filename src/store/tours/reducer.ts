@@ -37,6 +37,8 @@ export const configMap: ReducerMap<State, any> = {
       return state
     },
     FILTER: (state: State, action: Action<string>) => update(state, { tours: { filter: { $set: action.payload } } }),
+    SORT: (state: State, action: Action<string>) =>
+      update(state, { tours: { sorting: { $set: !!action.payload ? +action.payload : 0 } } }),
   },
 }
 

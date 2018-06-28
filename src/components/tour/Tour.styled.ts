@@ -17,6 +17,11 @@ export const Column2 = styled.div`
   margin-left: 16px;
 `
 
+export const Column3 = styled.div`
+  width: 200px;
+  margin-left: 16px;
+`
+
 export const Title = styled.div`
   font-size: 16px;
   line-height: 1.5;
@@ -50,3 +55,37 @@ export const Photo = Image.extend`
 `
 
 export const Map = Image
+
+export const PriceWrapper = styled.div`
+  display: flex;
+`
+
+export const SavingsColumn = styled.div`
+  width: 50%;
+`
+export const PriceColumn = SavingsColumn.extend`
+  text-align: right;
+`
+
+export const PriceLabel = styled.div`
+  font-size: 12px;
+`
+
+export const SavingsNumber = styled.div`
+  font-size: 14px;
+`
+
+export const PriceNumber = SavingsNumber.extend`
+  font-weight: bold;
+`
+export const DurationWrapper = styled.div`
+  width: 100%;
+  text-align: center;
+  font-size: 14px;
+  font-weight: bold;
+`
+
+export const Break = styled.hr<{ readonly opaque: boolean }>`
+  border-width: 1px;
+  opacity: ${({ opaque }) => (opaque ? 0.5 : 0.3)};
+`

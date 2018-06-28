@@ -50,11 +50,11 @@ const sortingMap = {
   [SORTING.LONGEST]: tourLength(false),
 }
 
-// Get the list of tours matching keywords
-export const getMatchingList = createSelector(
+// Get the list of tours matching keywords, then sort
+export const getMatchingSortedList = createSelector(
   [getDataWithMatcher, getFilterKeywords, getSorting],
   (data, keywords, sorting) =>
-    keywords.length > 0
-      ? data.filter(tour => keywords.some(keyword => tour.match.includes(keyword))).sort(sortingMap[sorting])
-      : data
+    (keywords.length > 0 ? data.filter(tour => keywords.some(keyword => tour.match.includes(keyword))) : data).sort(
+      sortingMap[sorting]
+    )
 )
