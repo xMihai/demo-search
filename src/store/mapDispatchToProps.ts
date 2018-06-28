@@ -1,6 +1,6 @@
 import { bindActionCreators, Dispatch, ActionCreatorsMapObject } from 'redux'
 
-const mapDispatchToProps = (actions: ActionCreatorsMapObject) => (dispatch: Dispatch) =>
+const mapDispatchToProps = <T = any>(actions: ActionCreatorsMapObject<T>) => (dispatch: Dispatch) =>
   bindActionCreators(actions, dispatch)
 
 export default mapDispatchToProps

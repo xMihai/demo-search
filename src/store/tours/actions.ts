@@ -9,5 +9,6 @@ export interface Actions extends INestedCreatorsMap {
   readonly tours: {
     readonly fetch: ActionFunctionAny<Action<Tour[]>>
     readonly filter: ActionFunctionAny<Action<string>>
+    readonly sort: ActionFunctionAny<Action<string>>
   }
 }
