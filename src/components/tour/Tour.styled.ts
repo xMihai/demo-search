@@ -2,22 +2,41 @@ import styled from 'styled-components'
 
 export const Wrapper = styled.div`
   display: flex;
+  flex-wrap: wrap;
   padding: 16px;
 `
 export const Column1 = styled.div`
   display: flex;
   flex-wrap: wrap;
   width: 96px;
+
+  @media (max-width: 600px) {
+    width: 100%;
+    max-width: 200px;
+    margin: 0 auto;
+  }
 `
 
 export const Column2 = styled.div`
   flex-grow: 1;
   margin-left: 16px;
+
+  @media (max-width: 600px) {
+    width: 100%;
+    margin-left: 0;
+    margin-top: 16px;
+  }
 `
 
 export const Column3 = styled.div`
   width: 200px;
   margin-left: 16px;
+
+  @media (max-width: 800px) {
+    width: 100%;
+    margin-left: 0;
+    margin-top: 16px;
+  }
 `
 
 export const Title = styled.div`
@@ -56,6 +75,8 @@ export const Map = Image
 
 export const PriceWrapper = styled.div`
   display: flex;
+  max-width: 200px;
+  margin: 0 auto;
 `
 
 export const SavingsColumn = styled.div`
