@@ -2,8 +2,6 @@ import styled from 'styled-components'
 
 export const Wrapper = styled.div`
   display: flex;
-  background-color: #fff;
-  margin-bottom: 16px;
   padding: 16px;
 `
 export const Column1 = styled.div`

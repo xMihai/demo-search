@@ -27,3 +27,8 @@ export const LabelWrapper = styled.div`
 export const SortWrapper = styled.div`
   width: 200px;
 `
+export const Placeholder = styled.div`
+  min-height: 150px;
+  background-color: #fff;
+  margin-bottom: 16px;
+`

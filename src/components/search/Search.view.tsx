@@ -1,4 +1,5 @@
 import React from 'react'
+import LazyLoad from 'react-lazy-load'
 import Tour from '@@components/tour'
 import Filter from '@@components/filter'
 import Sort from '@@components/sort'
@@ -15,7 +16,15 @@ const Search: React.ComponentType<Props> = ({ list }) => (
         <Sort />
       </S.SortWrapper>
     </S.Bar>
-    <div>{list.map(tour => <Tour {...{ tour, key: tour.id }} />)}</div>
+    <div>
+      {list.map(tour => (
+        <S.Placeholder {...{ key: tour.id }}>
+          <LazyLoad {...{ once: true, offset: 500 }}>
+            <Tour {...{ tour }} />
+          </LazyLoad>
+        </S.Placeholder>
+      ))}
+    </div>
   </div>
 )
 
