@@ -21,5 +21,7 @@ The results are under lazy loading. The component representing one results item 
 Under the Flux Standard Action convention, all three actions related to a fetch (request, success, failure) must bear the same action type.
 
 If the action has no payload, it is a request action. Any request data must be carried in the meta field.
+
 If the action has the error flag set, it is an error action. Its payload is of type Error.
+
 Otherwise, it is of type success and the payload carries the fetch response.
