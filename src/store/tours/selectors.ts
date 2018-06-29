@@ -1,6 +1,8 @@
 import { createSelector } from 'reselect'
 
-import { State, SORTING } from './reducer'
+import { getConversion } from '@@store/currency/selectors'
+import { SORTING } from './state'
+import { State } from '@@store/state'
 
 // Special character that divides keywords in an internal string. Cannot be used by user in search string.
 const DIVIDER = '%'
@@ -19,8 +21,14 @@ export const getMatchString = (tour: Tour) =>
     .join(DIVIDER)
 
 // Get list of tours enhanced with match string
-export const getDataWithMatcher = createSelector([getData], data =>
-  data.map(tour => ({ ...tour, match: getMatchString(tour) } as EnhancedTour))
+export const getDataWithMatcher = createSelector(
+  [getData, getConversion],
+  (data, conversion): EnhancedTour[] =>
+    data.map(tour => ({
+      ...tour,
+      match: getMatchString(tour),
+      indexedPrice: tour.price * (conversion[tour.currency] || 1),
+    }))
 )
 
 // Get lowercase keywords with at least three letters
@@ -34,13 +42,13 @@ export const getFilterKeywords = createSelector([getFilter], filter =>
   ].filter(keyword => keyword.length >= 3)
 )
 
-const sortingFn = (key: keyof Tour) => (ascending: boolean) => (a: Tour, b: Tour): number => {
+const sortingFn = (key: keyof EnhancedTour) => (ascending: boolean) => (a: EnhancedTour, b: EnhancedTour): number => {
   if (a[key] > b[key]) return ascending ? 1 : -1
   if (a[key] < b[key]) return ascending ? -1 : 1
   return 0
 }
 
-const price = sortingFn('price')
+const price = sortingFn('indexedPrice')
 const tourLength = sortingFn('length')
 
 const sortingMap = {

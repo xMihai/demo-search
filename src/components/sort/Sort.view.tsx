@@ -1,5 +1,5 @@
 import React from 'react'
-import { SORTING } from '@@store/tours/reducer'
+import { SORTING } from '@@store/tours/state'
 import * as S from './Sort.styled'
 
 const Sort: React.ComponentType<Props> = ({ select, options, selected }) => (

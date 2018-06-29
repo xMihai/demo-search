@@ -1,5 +1,5 @@
 // tslint:disable:no-expression-statement
-import { initialState } from './reducer'
+import { initialState } from '@@store/reducer'
 import update from 'immutability-helper'
 import { getData, getFilter, getMatchString, getDataWithMatcher, getFilterKeywords } from './selectors'
 import tours from './__mocks__/tours.json'

@@ -18,6 +18,7 @@ interface Tour {
 
 interface EnhancedTour extends Tour {
   readonly match: string
+  readonly indexedPrice: number
 }
 
 interface RequestAction {
@@ -51,5 +52,5 @@ declare module '*/tours.json' {
 }
 
 interface ObjectMap<T> {
-  [key: string]: T
+  readonly [key: string]: T
 }
